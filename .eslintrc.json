@@ -1,9 +1,8 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "@rocketseat/eslint-config/react"
-  ],
+  "extends": ["next/core-web-vitals", "@rocketseat/eslint-config/react"],
   "rules": {
-    "no-undef": "off"
+    "no-undef": "off",
+    "disable-next-line": "off",
+    "prettier/prettier": "off"
   }
 }
