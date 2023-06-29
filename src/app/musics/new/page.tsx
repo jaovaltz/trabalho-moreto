@@ -1,4 +1,4 @@
-import { NewMovieForm } from '@/components/NewMovieForm'
+import { NewMusicForm } from '@/components/NewMusicForm'
 import { ChevronLeft } from 'lucide-react'
 import Link from 'next/link'
 
@@ -13,7 +13,7 @@ export default function NewMovie() {
         voltar a lista
       </Link>
 
-      <NewMovieForm />
+      <NewMusicForm />
     </div>
   )
 }

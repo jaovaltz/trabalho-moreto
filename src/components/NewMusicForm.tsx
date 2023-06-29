@@ -5,10 +5,10 @@ import { api } from '@/lib/api'
 import Cookie from 'js-cookie'
 import { useRouter } from 'next/navigation'
 
-export function NewMovieForm() {
+export function NewMusicForm() {
   const router = useRouter()
 
-  async function handleCreateMovie(event: FormEvent<HTMLFormElement>) {
+  async function handleCreateMusic(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget)
@@ -29,7 +29,7 @@ export function NewMovieForm() {
     const token = Cookie.get('token')
 
     await api.post(
-      '/movies',
+      '/musics',
       {
         coverUrl,
         content: formData.get('content'),
@@ -46,7 +46,7 @@ export function NewMovieForm() {
   }
 
   return (
-    <form onSubmit={handleCreateMovie} className="flex flex-1 flex-col gap-2">
+    <form onSubmit={handleCreateMusic} className="flex flex-1 flex-col gap-2">
       <textarea
         name="content"
         spellCheck={false}
@@ -58,7 +58,7 @@ export function NewMovieForm() {
         type="submit"
         className="font-alt inline-block self-end rounded-full bg-green-500 px-5 py-3 text-sm uppercase leading-none text-black hover:bg-green-600"
       >
-        Salvar filme 🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙🤙
+        Salvar música 🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸🎸
       </button>
     </form>
   )

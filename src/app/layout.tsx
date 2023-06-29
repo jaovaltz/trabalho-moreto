@@ -19,7 +19,7 @@ const baiJamjuree = BaiJamjuree({
 })
 
 export const metadata = {
-  title: 'Lista filmes 2012',
+  title: 'Lista músicas 2012',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

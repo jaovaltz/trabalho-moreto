@@ -1,4 +1,4 @@
-import { EmptyMovies } from '@/components/EmptyMovies'
+import { EmptyMusics } from '@/components/EmptyMusics'
 import { api } from '@/lib/api'
 import { cookies } from 'next/headers'
 import dayjs from 'dayjs'
@@ -13,26 +13,26 @@ export default async function Home() {
   const isAuthenticated = cookies().has('token')
 
   if (!isAuthenticated) {
-    return <EmptyMovies />
+    return <EmptyMusics />
   }
 
   const token = cookies().get('token')?.value
 
-  const response = await api.get('/movies', {
+  const response = await api.get('/musics', {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   })
 
-  const movies: any = response.data
+  const musics: any = response.data
 
-  if (movies.length === 0) {
-    return <EmptyMovies />
+  if (musics.length === 0) {
+    return <EmptyMusics />
   }
 
   return (
     <div className="flex flex-col gap-10 p-8">
-      {movies.map((movie: any) => {
+      {musics.map((movie: any) => {
         return (
           <div key={movie.id} className="space-y-4">
             <time className="-ml-8 flex items-center gap-2 text-sm text-gray-100 before:h-px before:w-5 before:bg-gray-50">
@@ -49,7 +49,7 @@ export default async function Home() {
               {movie.excerpt}
             </p>
             <Link
-              href={`/movies/${movie.id}`}
+              href={`/musics/${movie.id}`}
               className="flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100"
             >
               Ler mais
